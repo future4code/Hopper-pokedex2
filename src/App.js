@@ -1,8 +1,9 @@
+import Router from "./router/Router";
 
 function App() {
   return (
     <div>
-      ola
+      <Router/>
     </div>
   );
 }
