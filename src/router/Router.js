@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "../pages/HomePage"
-import Pokedex from "../pages/Pokedex"
-import Details from "../pages/Details"
+import HomePage from "../pages/HomePage/HomePage"
+import Pokedex from "../pages/Pokedex/Pokedex"
+import Details from "../pages/Details/Details"
 
-const Router = () => {
-  <>
+export const Router = () => {
+  return(
     <BrowserRouter>
       <Routes>
         <Route path={'/'} element={<HomePage />} />
@@ -12,7 +12,5 @@ const Router = () => {
         <Route path={'/pokemon/:pokemon'} element={<Details />} />
       </Routes>
     </BrowserRouter>
-  </>
+  )  
 }
-
-export default Router
