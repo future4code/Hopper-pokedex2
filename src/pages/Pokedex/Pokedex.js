@@ -1,9 +1,15 @@
 import React from 'react'
-import pokemon from '../../assets/pokemon.png'
+import { useNavigate } from 'react-router-dom'
+import Header from '../../components/Header'
+import LogoHome from '../../assets/LogoHome.png'
 
 const Pokedex = () => {
+
+  const navigate = useNavigate()
+
   return (
-    <div>Pokedex
+    <div>
+        <Header voltar={() => navigate("/")} logo={LogoHome}/>
     </div>
   )
 }

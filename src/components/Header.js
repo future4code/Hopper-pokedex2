@@ -1,21 +1,11 @@
 import React from 'react'
-import { Cabecalho } from '../Styled'
-import pokedex from '../assets/pokedex.webp'
-// import { useNavigate } from 'react-router-dom'
-import {ImgBotao} from './styled'
+import { Cabecalho} from './Styled'
 
-const Header = () => {
-
-    // const navigate = useNavigate()
+const Header = ({voltar, logo}) => {
 
     return (
         <Cabecalho>
-            <button>
-                <ImgBotao
-                    src={pokedex}
-                    // onClick={() => navigate("/")}
-                    alt="Minha Pokedex" />
-            </button>
+            <img onClick={voltar} src={logo} alt="Logotipo da pagina"/>
         </Cabecalho>
     )
 }
