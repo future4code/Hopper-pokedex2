@@ -4,7 +4,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction:column;
     justify-content: space-around;
-    margin: 5px 0;
 `;
 
 export const ContainerCard = styled.div`
@@ -38,13 +37,13 @@ export const BoxBotao = styled.div`
 `
 
 export const Botao = styled.button`
-  background-color: transparent;
+  background-color: rgb(255, 255, 255, 0.5);
   border: 2px solid #e74c3c;
   border-radius: 0.6em;
   color: #1C1C1C;
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0.2em 0.4em;
+  font-size: 0.7rem;
+  padding: 0.2em 0.2em;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   transition: 300ms ease-in-out;
