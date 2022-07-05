@@ -18,7 +18,7 @@ const HomePage = () => {
                     <Imagem src={pokemon} alt='imgpokemon' />
                     <BoxBotao>
                         <Botao>Pegar</Botao>
-                        <Botao>Detalhes</Botao>
+                        <Botao onClick={() => navigate("/pokemon/pokemon")}>Detalhes</Botao>
                     </BoxBotao>
                 </section>
                 <section>

@@ -5,14 +5,14 @@ export const Cabecalho = styled.div`
     background-image: url(${imgTop});
     background-color: black;
     background-repeat: no-repeat;
-    background-position:center;
-    height: 8em;
+    background-size: 100%;
+    /* height: 8em; */
     width: 100%;
     display:flex;
     align-items:center;
 
     img{
-        width:8em;
+        width:15vw;
         padding:1em;
         margin-left:3em;
         cursor:pointer;

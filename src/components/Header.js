@@ -1,5 +1,5 @@
 import React from 'react'
-import { Cabecalho} from './Styled'
+import { Cabecalho} from './styled'
 
 const Header = ({voltar, logo}) => {
 
