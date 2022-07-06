@@ -11,7 +11,8 @@ export const ContainerCard = styled.div`
     justify-content: space-around;
     flex-wrap:wrap;
     padding:3em;
-    section{
+    `;
+export const BoxCard = styled.section`
         margin:1em;
         min-width:calc(20% - 4em);
         display: flex;
@@ -20,8 +21,8 @@ export const ContainerCard = styled.div`
         justify-content: center;
         box-shadow:0 1px 10px 3px #666;
         border-radius: 5%;
-    }
-`;
+
+`
 
 
 export const Imagem = styled.img`
