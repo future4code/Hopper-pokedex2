@@ -1,23 +1,43 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const useRequestData = () => {
-    const [data, setData] = useState([])
+export const useRequestDataLinst = (url) => {
+    const [dataLista, setDataLista] = useState([])
 
     useEffect (() => {
-        const url = `https://pokeapi.co/api/v2/pokemon/2/`
-
-        axios.get(url)
+        axios
+        .get(url)
         .then((response) => {
-            setData(response.data)
-            console.log(response.data)
+            setDataLista(response.data)
+            console.log(response.data + "dados Lista")
         })
         .catch((error) => {
             console.log(error.response)
         })
-    }, [])
+    }, [url])
 
-  return data
+
+  return dataLista
 }
 
-export default useRequestData
+export const useRequestDataDetail = (url) => {
+    const [dataD, setDataD] = useState([])
+
+    useEffect (() => {
+
+        axios.get(url)
+        .then((response) => {
+            setDataD(response.data)
+            console.log(response.data + "dados Detalhes")
+        })
+        .catch((error) => {
+            console.log(error.response)
+        })
+
+    }, [url])
+
+
+
+
+  return dataD
+}
