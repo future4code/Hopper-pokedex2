@@ -1,31 +1,47 @@
-import React from 'react'
-// import pokemon from '../../assets/pokemon.png'
+import React, { useEffect, useState } from 'react'
 import { Container, ContainerCard, Imagem, Botao, BoxBotao, BoxCard } from './Styled'
 import Header from '../../components/Header'
 import Logo from '../../assets/Logo.png'
 import { useNavigate } from 'react-router-dom'
-import useRequestData from '../../hooks/useRequestData'
+import axios from 'axios'
 
 const HomePage = () => {
 
     const navigate = useNavigate()
 
-    const { data } = useRequestData()
-    console.log(data)
+    const [data, setData] = useState({})
+
+    useEffect (() => {
+        getData()
+
+    }, [])
+    const url = "https://pokeapi.co/api/v2/pokemon/34"
+
+    const getData = () => {
+        axios.get(url)
+        .then((response) => {
+            setData(response.data)
+            console.log(response.data)
+        })
+        .catch((error) => {
+            console.log(error.response)
+        })
+    }
+
     return (
+        
         <Container>
             <Header voltar={() => navigate("/pokedex")} logo={Logo} />
             <ContainerCard>
 
 
                 <BoxCard >
-                    {data && data.map((pokemon) => {
-                        return (
-                            <section key={pokemon.id}>
+                    {data && data.sprites && 
+                            <section key={data.id}>
 
-                                <Imagem src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt='imgpokemon' />
+                                <Imagem src={data.sprites.other.dream_world.front_default} alt='imgpokemon' />
 
-                                <p>{pokemon.name}</p>
+                                <p>{data.name}</p>
 
                                 <BoxBotao>
                                     <Botao>Pegar</Botao>
@@ -33,37 +49,10 @@ const HomePage = () => {
                                 </BoxBotao>
                             </section>
 
-                        )
-                    })}
+                        
+                    }
                 </BoxCard>
-                {/* <section>
-                    <Imagem src={pokemon} alt='imgpokemon' />
-                    <BoxBotao>
-                        <Botao>Pegar</Botao>
-                        <Botao>Detalhes</Botao>
-                    </BoxBotao>
-                </section>
-                <section>
-                    <Imagem src={pokemon} alt='imgpokemon' />
-                    <BoxBotao>
-                        <Botao>Pegar</Botao>
-                        <Botao>Detalhes</Botao>
-                    </BoxBotao>
-                </section>
-                <section>
-                    <Imagem src={pokemon} alt='imgpokemon' />
-                    <BoxBotao>
-                        <Botao>Pegar</Botao>
-                        <Botao>Detalhes</Botao>
-                    </BoxBotao>
-                </section>
-                <section>
-                    <Imagem src={pokemon} alt='imgpokemon' />
-                    <BoxBotao>
-                        <Botao>Pegar</Botao>
-                        <Botao>Detalhes</Botao>
-                    </BoxBotao>
-                </section> */}
+
             </ContainerCard>
         </Container>
     )
