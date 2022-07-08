@@ -1,61 +1,38 @@
-import React, { useEffect, useState } from 'react'
 import { Container, ContainerCard, Imagem, Botao, BoxBotao, BoxCard } from './Styled'
 import Header from '../../components/Header'
 import Logo from '../../assets/Logo.png'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { URL_Img } from '../../constants/urls'
+import { useRequestData } from '../../hooks/useRequestData'
 
 const HomePage = () => {
 
     const navigate = useNavigate()
-
-    const [data, setData] = useState({})
-
-    useEffect (() => {
-        getData()
-
-    }, [])
-    const url = "https://pokeapi.co/api/v2/pokemon/34"
-
-    const getData = () => {
-        axios.get(url)
-        .then((response) => {
-            setData(response.data)
-            console.log(response.data)
-        })
-        .catch((error) => {
-            console.log(error.response)
-        })
-    }
+    const { data, isLoading } = useRequestData()
 
     return (
         
         <Container>
             <Header voltar={() => navigate("/pokedex")} logo={Logo} />
             <ContainerCard>
-
-
-                <BoxCard >
-                    {data && data.sprites && 
-                            <section key={data.id}>
-
-                                <Imagem src={data.sprites.other.dream_world.front_default} alt='imgpokemon' />
-
-                                <p>{data.name}</p>
-
+                {/* <BoxCard > */}
+                    {
+                        isLoading 
+                        ? (<p>Carregando...</p>)
+                        : data && data.map(pokemon => (
+                            <BoxCard key={pokemon.id}>
+                                <Imagem src={URL_Img + pokemon.id + ".png"} alt={`imagem do pokemon ${pokemon.name}`}/>
+                                <h2>{pokemon.name && pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>
                                 <BoxBotao>
-                                    <Botao>Pegar</Botao>
-                                    <Botao onClick={() => navigate("/pokemon/pokemon")}>Detalhes</Botao>
+                                    <Botao>Capturar</Botao>
+                                    <Botao>Detalhes</Botao>
                                 </BoxBotao>
-                            </section>
-
-                        
+                            </BoxCard>
+                        )) 
                     }
-                </BoxCard>
-
+                {/* </BoxCard> */}
             </ContainerCard>
         </Container>
     )
 }
-
-export default HomePage
+export default HomePage;
