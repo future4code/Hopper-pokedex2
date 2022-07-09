@@ -13,7 +13,7 @@ export const useRequestData = () => {
     const pegaPokemon = () => {
         let pokemons = []
         setIsLoading(true)
-        axios.get(URL_List + '?limit=20&offset=0')
+        axios.get(URL_List + '?limit=40&offset=0')
         .then((response) => {
             const resposta = response.data.results
             const urlPokemon = resposta.map(poke => poke.url)

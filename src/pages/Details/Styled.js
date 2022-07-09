@@ -20,7 +20,7 @@ export const PokemonBox = styled.div`
     justify-content: space-around;
     border: 2px solid gray;
     img{
-        height: 200px;
+        height: 175px;
     }
     div{
         display: flex;

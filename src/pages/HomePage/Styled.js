@@ -14,15 +14,17 @@ export const ContainerCard = styled.div`
     padding:3em;
     `;
 export const BoxCard = styled.section`
-        margin:1em;
-        min-width:calc(20% - 4em);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-shadow:0 1px 10px 3px #666;
-        border-radius: 5%;
-
+  margin:1em;
+  min-width:calc(20% - 4em);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:0 1px 10px 3px #666;
+  border-radius: 5%;
+  h3{
+    color: #245090	;
+  }
 `
 
 
@@ -42,7 +44,7 @@ export const Botao = styled.button`
   background-color: rgb(255, 255, 255, 0.5);
   border: 2px solid #e74c3c;
   border-radius: 0.6em;
-  color: #1C1C1C;
+  color: #1f2f6C;
   cursor: pointer;
   font-size: 0.7rem;
   padding: 0.2em 0.2em;

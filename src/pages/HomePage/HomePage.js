@@ -15,22 +15,20 @@ const HomePage = () => {
         <Container>
             <Header voltar={() => navigate("/pokedex")} logo={Logo} />
             <ContainerCard>
-                {/* <BoxCard > */}
                     {
                         isLoading 
                         ? (<p>Carregando...</p>)
                         : data && data.map(pokemon => (
                             <BoxCard key={pokemon.id}>
                                 <Imagem src={URL_Img + pokemon.id + ".png"} alt={`imagem do pokemon ${pokemon.name}`}/>
-                                <h2>{pokemon.name && pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h2>
+                                <h3>{pokemon.name && pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}</h3>
                                 <BoxBotao>
                                     <Botao>Capturar</Botao>
-                                    <Botao>Detalhes</Botao>
+                                    <Botao onClick={() => navigate("/details/" + pokemon.id + "/" + pokemon.name)}>Detalhes</Botao>
                                 </BoxBotao>
                             </BoxCard>
                         )) 
                     }
-                {/* </BoxCard> */}
             </ContainerCard>
         </Container>
     )
