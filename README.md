@@ -1,16 +1,17 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Alison Lucas Ribeiro
+- Diego Reynoldes Pires
+- Giovana Martinho dos Santos
 
-Link do Surge: www.link.com.br
+Link do Surge: loose-kite.surge.sh
 
 O que funciona:
-- Item 1
-- Item 2
+- As rotas;
+- Solicitações da API;
+- Página inicial;
+- Detalhes
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Seleção Pokedex
